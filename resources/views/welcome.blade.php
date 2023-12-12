@@ -1,31 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/script.js"></script>
+@section('title', 'Home')
 
-    <title>Laravel</title>
+@section('content')
 
-</head>
-
-<body>
-    <h1>Olá mundo!</h1>
+    <h1>Bem vindo ao HDC Events</h1>
 
     <a href="/contato">Contato</a>
 
-    @if ($nome === 'manu')
-        <p>{{ $nome }}</p>
-    @else
-        <p>Nome inválido, não é {{ $nome }}</p>
-    @endif
-
-    @foreach ($arr as $number)
-        <p>{{ $number }} - {{ $loop->index }}</p>
-    @endforeach
-
-</body>
-
-</html>
+@endsection
