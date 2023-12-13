@@ -2,12 +2,16 @@
 @extends('layouts.main')
 
 {{-- tiulo da pagina --}}
-@section('title', 'contatos')
+@section('title', 'produto')
 
 {{-- conteudo da pagina --}}
 @section('content')
 
-    <h1>pagina de contato</h1>
+    @if ($id !== null)
+        <h1>Produto ID: {{ $id }}</h1>
+    @else
+        <h1>Não foi possível encontrar</h1>
+    @endif
 
     <a href="/">voltar para home</a>
 

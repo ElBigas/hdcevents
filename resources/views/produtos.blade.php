@@ -2,12 +2,16 @@
 @extends('layouts.main')
 
 {{-- tiulo da pagina --}}
-@section('title', 'contatos')
+@section('title', 'produtos')
 
 {{-- conteudo da pagina --}}
 @section('content')
 
-    <h1>pagina de contato</h1>
+    <h1>Tela de produtos</h1>
+
+    @if ($search !== null)
+        <h2>Resultados para: <span class="text-primary">"{{ $search }}"</span></h2>
+    @endif
 
     <a href="/">voltar para home</a>
 

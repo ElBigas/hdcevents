@@ -10,5 +10,7 @@
     <h1>Bem vindo ao HDC Events</h1>
 
     <a href="/contato">Contato</a>
+    <a href="/produtos">produtos</a>
+    <a href="/produtos_teste">produto id</a>
 
 @endsection
