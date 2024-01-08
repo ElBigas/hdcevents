@@ -7,6 +7,10 @@
 {{-- conteudo da pagina --}}
 @section('content')
 
-    <h1>Bem vindo ao HDC Events, {{ $name }}!</h1>
+    <h1>Bem vindo ao HDC Events!</h1>
+
+    @foreach ($events as $event)
+        <p>{{ $event->title }} - {{ $event->description }} </p>
+    @endforeach
 
 @endsection
