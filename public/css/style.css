@@ -35,6 +35,7 @@ body {
 @media (min-width: 768px) {
     #cards-container{
         justify-content: center;
+        gap: 1.2rem;
     }
     .card {
         width: 18rem !important;
@@ -42,11 +43,17 @@ body {
 }
 
 @media (min-width: 992px) {
-    .card {
-        width: 15rem !important;
-    }
     #cards-container{
         justify-content: flex-start;
+        gap: 0;
+    }
+
+    #events-container .card {
+        flex: 1 1 24%;
+        padding: 0;
+        max-width: 25%;
+        border-radius: 10px;
+        margin: .5%;
     }
 }
 

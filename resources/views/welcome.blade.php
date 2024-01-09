@@ -18,10 +18,10 @@
         <h2>Próximos Eventos</h2>
         <p class="subtitle">Veja os próximos eventos</p>
 
-        <div id="cards-container" class="d-flex flex-wrap gap-2">
+        <div id="cards-container" class="d-flex flex-wrap">
             @foreach ($events as $event)
                 <div class="card col-md-3 ">
-                    <img src="/img/event_placeholder.jpg" alt="{{ $event->title }}">
+                    <img src="/img/events/{{ $event->image }}" alt="{{ $event->title }}">
 
                     <div class="card-body">
                         <p class="card-date">05/12/2024</p>
