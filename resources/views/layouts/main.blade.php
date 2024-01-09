@@ -73,6 +73,13 @@
     </header>
 
     <div class="container py-5">
+        @if (session('msg'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('msg') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         {{-- @yield é usada no Laravel para definir uma seção em um arquivo de
         template Blade. Uma seção é um espaço reservado onde o conteúdo pode ser
         inserido dinamicamente de outras views. --}}

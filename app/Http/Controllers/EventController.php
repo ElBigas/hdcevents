@@ -33,6 +33,7 @@ class EventController extends Controller {
 
         $event->save();
 
-        return redirect('/');
+        // redirecionar para a rota principal com uma mensagem
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 }
