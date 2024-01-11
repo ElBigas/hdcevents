@@ -148,7 +148,13 @@ body {
 }
 
 #image-container img {
+    height: 400px;
+    overflow: hidden;
+}
+
+#image-container img {
     border-radius: 10px;
+    object-fit: cover;
 }
 
 #info-container h1 {

@@ -51,9 +51,22 @@
                     Dono do evento
                     {{-- $event->user->name --}}
                 </p>
+                <h3>O evento conta com:</h3>
+                <ul class="event-itens">
+                    @foreach ($event->itens as $item)
+                        <li>
+                            <p>
+                                <span>
+                                    {{ $item }}
+                                </span>
+                            </p>
+                        </li>
+                    @endforeach
+                </ul>
                 <a href="#" class="btn btn-primary" id="event-submit">
                     Confirmar presença
                 </a>
+
             </div>
             <div class="col-md-12" id="event-description">
                 <h3>Sobre o evento:</h3>

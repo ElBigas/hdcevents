@@ -39,7 +39,31 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="description">Descrição:</label>
-                    <textarea rows="3" class="form-control" id="description" name="description" placeholder="Descrição do evento" required></textarea>
+                    <textarea rows="3" class="form-control" id="description" name="description" placeholder="Descrição do evento"
+                        required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Adicione itens de infraestrutura:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Cadeiras" name="itens[]">
+                        <label class="form-check-label" for="cadeiras">
+                            Cadeiras
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Open food" name="itens[]">
+                        <label class="form-check-label" for="Open food">
+                            Open food
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Brindes" name="itens[]">
+                        <label class="form-check-label" for="brindes">
+                            Brindes
+                        </label>
+                    </div>
+
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
