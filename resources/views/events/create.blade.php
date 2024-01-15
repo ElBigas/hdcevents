@@ -30,6 +30,12 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label" for="date">Data:</label>
+                    <input type="date" class="form-control" id="date" name="date"
+                        required>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label" for="private">O evento é privado?</label>
                     <select name="private" id="private" class="form-select" required>
                         <option value="0">Não</option>
@@ -46,20 +52,20 @@
                 <div class="mb-3">
                     <label class="form-label" for="description">Adicione itens de infraestrutura:</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Cadeiras" name="itens[]">
+                        <input class="form-check-input" type="checkbox" value="Cadeiras" name="itens[]" id="cadeiras">
                         <label class="form-check-label" for="cadeiras">
                             Cadeiras
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Open food" name="itens[]">
-                        <label class="form-check-label" for="Open food">
+                        <input class="form-check-input" type="checkbox" value="Open food" name="itens[]" id="food">
+                        <label class="form-check-label" for="food">
                             Open food
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="Brindes" name="itens[]">
-                        <label class="form-check-label" for="brindes">
+                        <input class="form-check-input" type="checkbox" value="Brindes" name="itens[]" id="brindes">
+                        <label class="form-check-label" for="brindes" >
                             Brindes
                         </label>
                     </div>
