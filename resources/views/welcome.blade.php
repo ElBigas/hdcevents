@@ -9,14 +9,20 @@
 
     <div id="search-container" class="col-md-12 pb-5">
         <h1>Busque um evento</h1>
-        <form action="">
+        <form action="/" method="GET">
             <input type="text" name="search" id="search" class="form-control" placeholder="Procurar...">
+            <button type="submit" class="btn btn-primary mt-4">Pesquisar</button>
         </form>
     </div>
 
     <div id="events-container" class="col-md-12">
-        <h2>Próximos Eventos</h2>
-        <p class="subtitle">Veja os próximos eventos</p>
+
+        @if ($search)
+            <h2>Buscando por: {{ $search }}</h2>
+        @else
+            <h2>Próximos Eventos</h2>
+            <p class="subtitle">Veja os próximos eventos</p>
+        @endif
 
         <div id="cards-container" class="d-flex flex-wrap">
             @foreach ($events as $event)
@@ -32,8 +38,17 @@
                 </div>
             @endforeach
 
-            @if (count($events) == 0)
-                <p class="alert alert-danger">Não há eventos disponíveis!</p>
+            @if (count($events) == 0 && $search)
+                <div>
+                    <div><span class="fs-5">Nenhum resultado para "{{ $search }}"</span> <br /> Tente verificar a
+                        ortografia ou usar termos mais genéricos</div>
+                    <a href="/">Ver todos</a>
+                </div>
+            @elseif (count($events) == 0)
+                <div>
+                    <div>Não há eventos disponíveis</div>
+                    <a href="/">Ver todos</a>
+                </div>
             @endif
         </div>
     </div>
