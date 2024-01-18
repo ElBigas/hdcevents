@@ -2,7 +2,7 @@
 @extends('layouts.main')
 
 {{-- tiulo da pagina --}}
-@section('title', 'Home')
+@section('title', 'Dashboard')
 
 {{-- conteudo da pagina --}}
 @section('content')
