@@ -7,6 +7,14 @@
 {{-- conteudo da pagina --}}
 @section('content')
 
+    @if (auth()->user())
+        <div class="col-md-12">
+            <h1>
+                Olá, {{ auth()->user()->name }}!
+            </h1>
+        </div>
+    @endif
+
     <div id="search-container" class="col-md-12 pb-5">
         <h1>Busque um evento</h1>
         <form action="/" method="GET">
@@ -47,7 +55,6 @@
             @elseif (count($events) == 0)
                 <div>
                     <div>Não há eventos disponíveis</div>
-                    <a href="/">Ver todos</a>
                 </div>
             @endif
         </div>
