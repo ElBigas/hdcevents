@@ -58,7 +58,7 @@ class EventController extends Controller {
 
         $event->save();
 
-        // redirecionar para a rota principal com uma mensagem
+        // Redirecionar para a rota principal com uma mensagem
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
@@ -75,5 +75,10 @@ class EventController extends Controller {
         $user = auth()->user();
         $events = $user->events;
         return view('events.dashboard', ['events' => $events]);
+    }
+
+    public function destroy($id) {
+        Event::findOrFail($id)->delete();
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
 }
