@@ -172,3 +172,8 @@ body {
     font-weight: bold;
 }
 
+.dashboard-title-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+

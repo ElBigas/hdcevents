@@ -2,21 +2,13 @@
 @extends('layouts.main')
 
 {{-- tiulo da pagina --}}
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 {{-- conteudo da pagina --}}
 @section('content')
 
-    @if (auth()->user())
-        <div class="col-md-12">
-            <h1>
-                Olá, {{ auth()->user()->name }}!
-            </h1>
-        </div>
-    @endif
-
     <div id="search-container" class="col-md-12 pb-5">
-        <h1>Busque um evento</h1>
+        <h1>@if (auth()->user())Olá, {{ auth()->user()->name }}!@endif Busque um evento</h1>
         <form action="/" method="GET">
             <input type="text" name="search" id="search" class="form-control" placeholder="Procurar...">
             <button type="submit" class="btn btn-primary mt-4">Pesquisar</button>
