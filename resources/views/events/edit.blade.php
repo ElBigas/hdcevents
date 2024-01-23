@@ -1,51 +1,54 @@
 @extends('layouts.main')
 
-@section('title', 'Criar Evento')
+@section('title', 'Editando: ' . $event->title)
 
 @section('content')
 
     <div id="event-create-container" class="col-md-6 offset-md-3">
 
-        <h1>Criar evento</h1>
+        <h1>Editando: {{ $event->title }} </h1>
 
-        <form action="/events" method="POST" enctype="multipart/form-data">
+        <form action="/events/update/{{ $event->id }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="form-group">
 
                 <div class="mb-3">
                     <label class="form-label" for="image">Imagem do evento:</label>
-                    <input type="file" class="form-control-file" id="image" name="image" required>
+                    <input type="file" class="form-control-file" id="image" name="image">
+                    <img src="/img/events/{{ $event->image }}" class="img-fluid img-thumbnail mt-2"
+                        alt="Imagem atual do evento">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="title">Evento:</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Nome do evento"
-                        required>
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $event->title }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="city">Cidade:</label>
-                    <input type="text" class="form-control" id="city" name="city" placeholder="Local do evento"
-                        required>
+                    <input type="text" class="form-control" id="city" name="city"
+                        value="{{ $event->city }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="date">Data:</label>
-                    <input type="date" class="form-control" id="date" name="date" required>
+                    <input type="date" class="form-control" id="date" name="date"
+                        value="{{ (new DateTime($event->date))->format('Y-m-d') }}">
                 </div>
+
 
                 <div class="mb-3">
                     <label class="form-label" for="private">O evento é privado?</label>
-                    <select name="private" id="private" class="form-select" required>
+                    <select name="private" id="private" class="form-select">
                         <option value="0">Não</option>
-                        <option value="1">Sim</option>
+                        <option value="1" {{ $event->private == '1' ? 'selected' : '' }}>Sim</option>
                     </select>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="description">Descrição:</label>
-                    <textarea rows="3" class="form-control" id="description" name="description" placeholder="Descrição do evento"
-                        required></textarea>
+                    <textarea rows="3" class="form-control" id="description" name="description">{{ $event->description }}</textarea>
                 </div>
 
                 <div class="mb-3">
