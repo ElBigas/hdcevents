@@ -31,7 +31,7 @@
                         <path
                             d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
                         <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-                    </svg>Participantes</p>
+                    </svg> {{ $event->users->count() }} participantes</p>
                 <p class="event-private">
                     @if ($event->private)
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -71,9 +71,12 @@
                         </li>
                     @endforeach
                 </ul>
-                <a href="#" class="btn btn-primary" id="event-submit">
-                    Confirmar presença
-                </a>
+                <form action="/events/join/{{ $event->id }}" method="POST">
+                    @csrf
+                    <a href="" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">
+                        Confirmar presença
+                    </a>
+                </form>
 
             </div>
             <div class="col-md-12" id="event-description">
