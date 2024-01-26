@@ -10,7 +10,7 @@
 
     <div class="col-md-10 offset-md-1 dashboard-events-container">
         @if (count($events) > 0)
-            <table class="table">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -24,7 +24,7 @@
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td><a href="/events/{{ $event->id }}"> {{ $event->title }}</a></td>
-                            <td>0 {{-- count($event->users) --}} </td>
+                            <td>{{ count($event->users) }} </td>
                             <td>
                                 <a href="/events/edit/{{ $event->id }}" type="submit" class="btn btn-warning">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -62,6 +62,42 @@
             <p>Você ainda não tem eventos.</p>
             <a class="btn btn-primary" href="/events/create">Criar evento</a>
         @endif
+    </div>
+
+    <div class="col-md-10 offset-md-1 dashboard-title-container">
+        <h1>Eventos que estou participando</h1>
+    </div>
+
+    <div class="col-md-10 offset-md-1 dashboard-events-container">
+
+        @if (count($eventsAsParticipant) > 0)
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Participantes</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($eventsAsParticipant as $event)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td><a href="/events/{{ $event->id }}"> {{ $event->title }}</a></td>
+                            <td>{{ count($event->users) }} </td>
+                            <td>
+                                <a class="btn btn-danger" href="#">Sair do evento</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>Você ainda não esta participando de nenhum evento.</p>
+            <a href="/">Veja todos os eventos</a>
+        @endif
+
     </div>
 
 @endsection

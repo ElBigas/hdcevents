@@ -73,7 +73,8 @@
                 </ul>
                 <form action="/events/join/{{ $event->id }}" method="POST">
                     @csrf
-                    <a href="" class="btn btn-primary" id="event-submit" onclick="event.preventDefault(); this.closest('form').submit();">
+                    <a href="" class="btn btn-primary" id="event-submit"
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         Confirmar presença
                     </a>
                 </form>
