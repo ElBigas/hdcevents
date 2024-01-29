@@ -4,6 +4,7 @@
  * Geralmente os controladores são usados para manipular os dados, são eles quem executam as regras de negócio.
  * Enviam e recebem dados e retornam estes dados para uma view ou redirecionam para outra rota.
 */
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -64,8 +65,21 @@ class EventController extends Controller {
 
     public function show($id) {
         $event = Event::findOrFail($id);
+
+        $user = auth()->user();
+        $hasUserJoined = false;
+
+        if ($user) {
+            $userEvents = $user->eventsAsParticipant->toArray();
+            foreach ($userEvents as $userEvent) {
+                if ($userEvent['id'] == $id) {
+                    $hasUserJoined = true;
+                }
+            }
+        }
+
         $eventOwner = User::where('id', $event->user_id)->first()->toArray();
-        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner]);
+        return view('events.show', ['event' => $event, 'eventOwner' => $eventOwner, 'hasUserJoined' => $hasUserJoined]);
     }
 
     public function dashboard() {
@@ -112,6 +126,16 @@ class EventController extends Controller {
     public function joinEvent($id) {
         $user = auth()->user();
         $user->eventsAsParticipant()->attach($id);
+
+        $event = Event::findOrFail($id);
         return redirect('/dashboard')->with('msg', 'Sua inscrição foi realizada com sucesso!');
+    }
+
+    public function leaveEvent($id) {
+        $user = auth()->user();
+        $user->eventsAsParticipant()->detach($id);
+
+        $event = Event::findOrFail($id);
+        return redirect('/dashboard')->with('msg', 'Sua inscrição foi cancelada com sucesso!');
     }
 }

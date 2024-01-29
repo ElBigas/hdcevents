@@ -71,6 +71,7 @@
                         </li>
                     @endforeach
                 </ul>
+                @if (!$hasUserJoined)
                 <form action="/events/join/{{ $event->id }}" method="POST">
                     @csrf
                     <a href="" class="btn btn-primary" id="event-submit"
@@ -78,6 +79,11 @@
                         Confirmar presença
                     </a>
                 </form>
+                @else
+                <a href="" class="btn btn-primary disabled" id="event-submit">
+                    Você já participa deste evento
+                </a>
+                @endif
 
             </div>
             <div class="col-md-12" id="event-description">
