@@ -59,7 +59,7 @@
                 </tbody>
             </table>
         @else
-            <p>Você ainda não tem eventos.</p>
+            <p>Você ainda não criou nenhum evento.</p>
             <a class="btn btn-primary" href="/events/create">Criar evento</a>
         @endif
     </div>
